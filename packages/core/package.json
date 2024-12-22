@@ -1,8 +1,19 @@
 {
-  "name": "core",
+  "name": "@kql-ts/core",
   "type": "module",
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "tsup": "^8.3.5"
+  },
+  "scripts": {
+    "build": "bun build.ts && bun run build:declarations",
+    "build:declarations": "tsc --emitDeclarationOnly --declaration"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.ts"
+    }
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
