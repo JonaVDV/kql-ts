@@ -1,0 +1,3 @@
+{
+  "extends": ["@kql-ts/tsconfig/core"]
+}

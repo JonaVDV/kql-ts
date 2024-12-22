@@ -1,0 +1,23 @@
+{
+  "name": "kql-ts",
+  "version": "0.2.0",
+  "module": "index.ts",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0",
+    "bun": ">=1.1.42"
+  },
+  "packageManager": "bun@1.1.42",
+  "workspaces": [
+    "packages/*",
+    "tooling/*",
+    "sites/*"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

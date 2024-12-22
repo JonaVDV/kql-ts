@@ -1,0 +1,8 @@
+{
+  "name": "@kql-ts/tsconfig",
+  "description": "TypeScript configuration for kql-ts packages",
+  "version": "1.0.0",
+  "files": [
+    "*.json"
+  ]
+}
