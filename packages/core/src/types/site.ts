@@ -1,10 +1,10 @@
-import type { Field } from './field';
+import type { Field } from "./field";
 import type {
 	allowedMethodsForChildren,
 	allowedMethodsForFiles,
-	allowedMethodsForModels
-} from './allowedMethods';
-import type { Page, Pages } from './page';
+	allowedMethodsForModels,
+} from "./allowedMethods";
+import type { Page, Pages } from "./page";
 
 export interface Site
 	extends allowedMethodsForChildren,

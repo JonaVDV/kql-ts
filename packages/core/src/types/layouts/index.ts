@@ -1,4 +1,4 @@
-import type { KirbyBlock } from '../blocks';
+import type { KirbyBlock } from "../blocks";
 
 interface KirbyLayout {
 	id: string;

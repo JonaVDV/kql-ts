@@ -1,6 +1,6 @@
-import type { AllowedMethodsForSiblings } from './allowedMethods';
-import type { Content } from './content';
-import type { Field } from './field';
+import type { AllowedMethodsForSiblings } from "./allowedMethods";
+import type { Content } from "./content";
+import type { Field } from "./field";
 
 export interface StructureObject extends AllowedMethodsForSiblings {
 	__extra: Field;

@@ -1,5 +1,5 @@
-import type { KirbyBlock, KirbyBlockType } from './blocks';
-import type { Field } from './field';
+import type { KirbyBlock, KirbyBlockType } from "./blocks";
+import type { Field } from "./field";
 
 export type Content = {
 	__default: KirbyBlock<KirbyBlockType>;

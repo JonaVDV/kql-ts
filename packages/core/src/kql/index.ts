@@ -13,8 +13,8 @@ import type { File } from "../types/file";
  * @template T The type of object being proxied
  */
 type ProxyHandler<T> = {
-  get(target: T, prop: string | symbol, receiver: unknown): unknown;
-  apply(target: T, thisArg: unknown, argArray?: unknown): unknown;
+	get(target: T, prop: string | symbol, receiver: unknown): unknown;
+	apply(target: T, thisArg: unknown, argArray?: unknown): unknown;
 };
 /**
  * Adds dynamic property access to a type that may have extra properties
@@ -22,7 +22,7 @@ type ProxyHandler<T> = {
  * @property `{T['__extra'] | any}` `[key: string]` Dynamic property accessor
  */
 export type WithDynamicProps<T extends { __extra?: unknown }> = T & {
-  [key: string]: T extends { __extra: unknown } ? T["__extra"] : unknown;
+	[key: string]: T extends { __extra: unknown } ? T["__extra"] : unknown;
 };
 
 /**
@@ -36,23 +36,23 @@ export type WithDynamicProps<T extends { __extra?: unknown }> = T & {
  * proxy.title.toString() // Returns "site.title"
  */
 export function proxyHandler<T extends { __extra?: unknown }>(
-  path: string
+	path: string,
 ): ProxyHandler<T> {
-  return {
-    get(_target, prop: string | symbol) {
-      if (prop === "toString") {
-        return () => path;
-      }
-      return createKQLProxy(path + (path ? "." : "") + String(prop));
-    },
-    apply(_target, _thisArg, args: unknown[]) {
-      const argsString =
-        args.length > 0
-          ? `(${args.map((arg) => JSON.stringify(arg)).join(", ")})`
-          : "";
-      return createKQLProxy(path + argsString);
-    },
-  };
+	return {
+		get(_target, prop: string | symbol) {
+			if (prop === "toString") {
+				return () => path;
+			}
+			return createKQLProxy(path + (path ? "." : "") + String(prop));
+		},
+		apply(_target, _thisArg, args: unknown[]) {
+			const argsString =
+				args.length > 0
+					? `(${args.map((arg) => JSON.stringify(arg)).join(", ")})`
+					: "";
+			return createKQLProxy(path + argsString);
+		},
+	};
 }
 /**
  * Creates a proxied object for building KQL queries
@@ -61,11 +61,11 @@ export function proxyHandler<T extends { __extra?: unknown }>(
  * @returns {WithDynamicProps<T>} A proxy object that can be used to build queries
  */
 export function createKQLProxy<T extends { __extra?: any }>(
-  path: string = ""
+	path: string = "",
 ): WithDynamicProps<T> {
-  // important to use Object.assign here to make sure that the target is a function
-  const target = Object.assign(() => {}, {} as WithDynamicProps<T>);
-  return new Proxy(target, proxyHandler<T>(path));
+	// important to use Object.assign here to make sure that the target is a function
+	const target = Object.assign(() => {}, {} as WithDynamicProps<T>);
+	return new Proxy(target, proxyHandler<T>(path));
 }
 
 /**
@@ -84,7 +84,7 @@ export const site = (): WithDynamicProps<Site> => createKQLProxy<Site>("site");
  * page().title.toString() // Returns "page.title"
  */
 export const page = (page?: string): WithDynamicProps<Page> =>
-  createKQLProxy<Page>(page ? `page('${page}')` : "page");
+	createKQLProxy<Page>(page ? `page('${page}')` : "page");
 
 /**
  * Creates a query builder for the Kirby application object

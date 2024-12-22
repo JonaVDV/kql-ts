@@ -7,6 +7,9 @@
     "node": ">=22.0.0",
     "bun": ">=1.1.42"
   },
+  "scripts": {
+    "format": "bun --filter '*' format"
+  },
   "packageManager": "bun@1.1.42",
   "workspaces": [
     "packages/*",

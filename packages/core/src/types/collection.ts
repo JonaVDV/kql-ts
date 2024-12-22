@@ -1,4 +1,4 @@
-import type { Pages } from './page';
+import type { Pages } from "./page";
 
 export interface Collection<TObject> {
 	__collection: TObject;

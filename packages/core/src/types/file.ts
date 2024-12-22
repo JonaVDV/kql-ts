@@ -1,24 +1,24 @@
 import type {
 	allowedMethodsForModels,
 	AllowedMethodsForParents,
-	AllowedMethodsForSiblings
-} from './allowedMethods';
-import type { Collection } from './collection';
-import type { Content } from './content';
-import type { Field } from './field';
-import type { Page } from './page';
-import type { Site } from './site';
+	AllowedMethodsForSiblings,
+} from "./allowedMethods";
+import type { Collection } from "./collection";
+import type { Content } from "./content";
+import type { Field } from "./field";
+import type { Page } from "./page";
+import type { Site } from "./site";
 
 type CropPositions =
-	| 'top left'
-	| 'top'
-	| 'top right'
-	| 'left'
-	| 'center'
-	| 'right'
-	| 'bottom left'
-	| 'bottom'
-	| 'bottom right';
+	| "top left"
+	| "top"
+	| "top right"
+	| "left"
+	| "center"
+	| "right"
+	| "bottom left"
+	| "bottom"
+	| "bottom right";
 
 export interface File
 	extends allowedMethodsForModels,
@@ -39,7 +39,11 @@ export interface File
 	};
 	blur: (pixels: number | boolean) => File;
 	bw: () => File;
-	crop: (width: number, height: number, options?: CropPositions | string) => File;
+	crop: (
+		width: number,
+		height: number,
+		options?: CropPositions | string,
+	) => File;
 	extension: () => string;
 	filename: () => string;
 	files: () => Files;

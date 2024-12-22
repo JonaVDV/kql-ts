@@ -4,16 +4,16 @@
  * @returns The transformed query object
  */
 export function transformQuery<T extends object>(
-  query: T
+	query: T,
 ): Record<string, unknown> {
-  return Object.fromEntries(
-    Object.entries(query).map(([key, value]) => [
-      key,
-      key === "query" || typeof value === "function"
-        ? value.toString()
-        : typeof value === "object"
-        ? transformQuery(value)
-        : value,
-    ])
-  );
+	return Object.fromEntries(
+		Object.entries(query).map(([key, value]) => [
+			key,
+			key === "query" || typeof value === "function"
+				? value.toString()
+				: typeof value === "object"
+					? transformQuery(value)
+					: value,
+		]),
+	);
 }

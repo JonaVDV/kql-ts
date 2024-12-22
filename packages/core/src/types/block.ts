@@ -1,8 +1,8 @@
-import type { AllowedMethodsForSiblings } from './allowedMethods';
-import type { KirbyBlockType } from './blocks';
-import type { Collection } from './collection';
-import type { Content } from './content';
-import type { Field } from './field';
+import type { AllowedMethodsForSiblings } from "./allowedMethods";
+import type { KirbyBlockType } from "./blocks";
+import type { Collection } from "./collection";
+import type { Content } from "./content";
+import type { Field } from "./field";
 
 export interface Block extends AllowedMethodsForSiblings {
 	__default: {

@@ -1,51 +1,51 @@
-import type { Blocks } from './block';
-import type { Collection } from './collection';
-import type { Content } from './content';
-import type { File } from './file';
-import type { Layout, Layouts } from './layout';
-import type { Page, Pages } from './page';
-import type { StructureObject } from './structure';
+import type { Blocks } from "./block";
+import type { Collection } from "./collection";
+import type { Content } from "./content";
+import type { File } from "./file";
+import type { Layout, Layouts } from "./layout";
+import type { Page, Pages } from "./page";
+import type { StructureObject } from "./structure";
 
-type EscapeContext = 'html' | 'attr' | 'js' | 'css' | 'url' | 'xml';
+type EscapeContext = "html" | "attr" | "js" | "css" | "url" | "xml";
 type Validators =
-	| 'accepted'
-	| 'alpha'
-	| 'alphanum'
-	| 'between'
-	| 'callback'
-	| 'contains'
-	| 'date'
-	| 'denied'
-	| 'different'
-	| 'email'
-	| 'empty'
-	| 'endsWith'
-	| 'filename'
-	| 'in'
-	| 'integer'
-	| 'ip'
-	| 'json'
-	| 'less'
-	| 'match'
-	| 'max'
-	| 'maxLength'
-	| 'maxWords'
-	| 'min'
-	| 'minLength'
-	| 'minWords'
-	| 'more'
-	| 'notContains'
-	| 'notEmpty'
-	| 'notIn'
-	| 'num'
-	| 'required'
-	| 'same'
-	| 'size'
-	| 'startsWith'
-	| 'tel'
-	| 'time'
-	| 'url'
-	| 'uuid';
+	| "accepted"
+	| "alpha"
+	| "alphanum"
+	| "between"
+	| "callback"
+	| "contains"
+	| "date"
+	| "denied"
+	| "different"
+	| "email"
+	| "empty"
+	| "endsWith"
+	| "filename"
+	| "in"
+	| "integer"
+	| "ip"
+	| "json"
+	| "less"
+	| "match"
+	| "max"
+	| "maxLength"
+	| "maxWords"
+	| "min"
+	| "minLength"
+	| "minWords"
+	| "more"
+	| "notContains"
+	| "notEmpty"
+	| "notIn"
+	| "num"
+	| "required"
+	| "same"
+	| "size"
+	| "startsWith"
+	| "tel"
+	| "time"
+	| "url"
+	| "uuid";
 
 export interface Field {
 	__default: string;
@@ -140,7 +140,7 @@ export interface Field {
 	 * @param method - The method to parse the field value with
 	 * @returns The parsed field value
 	 */
-	toData: (method: ',' | 'yaml' | 'json') => Field;
+	toData: (method: "," | "yaml" | "json") => Field;
 	/**Converts the field value to a timestamp or a formatted date*/
 	toDate: (format?: string, fallback?: string) => string | number | null;
 

@@ -1,1 +1,1 @@
-export type { KQLQueryTypeResolver } from './query-resolver';
+export type { KQLQueryTypeResolver } from "./query-resolver";
