@@ -6,9 +6,13 @@ Icon
 
 # Temporary files
 # ---------------
-
-/media/*
+./media/*
 !/media/index.html
+
+# Packages
+# ---------------
+vendor
+node_modules
 
 # Lock files
 # ---------------
@@ -31,6 +35,10 @@ Icon
 
 /site/cache/*
 !/site/cache/index.html
+
+# Plugins
+# ---------------
+/site/plugins
 
 # Accounts
 # ---------------
