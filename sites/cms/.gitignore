@@ -6,7 +6,7 @@ Icon
 
 # Temporary files
 # ---------------
-./media/*
+/public/media/*
 !/media/index.html
 
 # Packages
@@ -33,8 +33,8 @@ node_modules
 # Cache Files
 # ---------------
 
-/site/cache/*
-!/site/cache/index.html
+/storage/cache/*
+!/storage/cache/index.html
 
 # Plugins
 # ---------------
@@ -43,14 +43,14 @@ node_modules
 # Accounts
 # ---------------
 
-/site/accounts/*
-!/site/accounts/index.html
+/storage/accounts/*
+!/storage/accounts/index.html
 
 # Sessions
 # ---------------
 
-/site/sessions/*
-!/site/sessions/index.html
+/storage/sessions/*
+!/storage/sessions/index.html
 
 # License
 # ---------------
