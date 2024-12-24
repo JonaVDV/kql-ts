@@ -1,34 +1,34 @@
 <!-- we use any here because we don't know the type of the blocks yet and the type will be too complex to define -->
 <script lang="ts" generics="TBlocks extends KirbyBlock<any>[]">
-  import type { KirbyBlock } from "@kql-ts/core";
+import type { KirbyBlock } from "@kql-ts/core";
 
-  import { getBlocksContext } from "./state.svelte";
+import { getBlocksContext } from "./state.svelte";
 
-  const components = getBlocksContext();
+const components = getBlocksContext();
 
-  type Props = {
-    /**
-     * An array of blocks to render.
-     */
-    blocks: TBlocks;
-    /** --- css props --- */
+type Props = {
+	/**
+	 * An array of blocks to render.
+	 */
+	blocks: TBlocks;
+	/** --- css props --- */
 
-    /** The padding of the error message */
-    "--error-padding"?: string;
-    /** The margin of the error message */
-    "--error-margin"?: string;
-    /** The border radius of the error message */
-    "--error-border-radius"?: string;
-    /** The border width of the error message */
-    "--error-border-width"?: string;
-    /** The border color of the error message */
-    "--error-border-color"?: string;
-    /** The background color of the error message */
-    "--error-background-color"?: string;
-    /** The text color of the error message */
-    "--error-text-color"?: string;
-  };
-  let { blocks }: Props = $props();
+	/** The padding of the error message */
+	"--error-padding"?: string;
+	/** The margin of the error message */
+	"--error-margin"?: string;
+	/** The border radius of the error message */
+	"--error-border-radius"?: string;
+	/** The border width of the error message */
+	"--error-border-width"?: string;
+	/** The border color of the error message */
+	"--error-border-color"?: string;
+	/** The background color of the error message */
+	"--error-background-color"?: string;
+	/** The text color of the error message */
+	"--error-text-color"?: string;
+};
+let { blocks }: Props = $props();
 </script>
 
 {#if !components || !components.blocks}
@@ -41,11 +41,12 @@
       <Component {block} />
     {:else}
       <pre class="error">
-				Component not found: <span>{block.type}</span> in <span
+        Component not found: <span>{block.type}</span>
+        Available blocks: <span
           >{JSON.stringify(components.getAllBlocks())}</span
         >
-				Did you forget to add it to the blocks context?
-			</pre>
+        Did you forget to add it to the blocks context?
+      </pre>
     {/if}
   {/each}
 {/if}
