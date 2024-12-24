@@ -6,7 +6,7 @@ Text: [{"content":{"text":"<p>Far far away, behind the word mountains, far from 
 
 ----
 
-Cover: - file://tWNX7ZrzJUvS9Vad
+Cover: - 'file://tWNX7ZrzJUvS9Vad'
 
 ----
 
@@ -14,7 +14,7 @@ Date: 2023-11-24 16:00:00
 
 ----
 
-Author: 
+Author: []
 
 ----
 

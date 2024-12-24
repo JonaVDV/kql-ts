@@ -27,9 +27,8 @@ status:
 columns:
   - width: 2/3
     # This columns only has a single field
-    fields:
-      text:
-        type: blocks
+    sections:
+      blocks: sections/blocks
 
   - width: 1/3
     # This second column holds a fields section with multiple fields
