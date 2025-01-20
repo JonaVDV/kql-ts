@@ -1,22 +1,22 @@
 {
-  "name": "@kql-ts/core",
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest",
-    "tsup": "^8.3.5"
-  },
-  "scripts": {
-    "build": "tsup --config tsup.config.ts",
-    "format": "biome format --write"
-  },
-  "types": "types.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.ts"
-    }
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  }
+	"name": "@kql-ts/core",
+	"type": "module",
+	"devDependencies": {
+		"@types/bun": "latest",
+		"tsup": "^8.3.5"
+	},
+	"scripts": {
+		"build": "tsup --config tsup.config.ts",
+		"format": "biome format --write"
+	},
+	"types": "types.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	}
 }

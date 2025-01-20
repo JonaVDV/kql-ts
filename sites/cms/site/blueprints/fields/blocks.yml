@@ -1,0 +1,37 @@
+label:
+  nl: Blokken
+  en: Blocks
+type: blocks
+fieldsets:
+  text:
+    label:
+      nl: Tekst
+      en: Text
+    type: group
+    fieldsets:
+      - text
+      - heading
+      - list
+      - quote
+      - line
+
+  media:
+    label:
+      nl: Media
+      en: Media
+    type: group
+    fieldsets:
+      - image
+      - video
+      - gallery
+
+  interactive:
+    label:
+      nl: Interactief
+      en: Interactive
+    type: group
+    fieldsets:
+      - accordion
+      - tabs
+      - button
+      - link

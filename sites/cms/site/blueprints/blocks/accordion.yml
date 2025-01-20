@@ -1,0 +1,19 @@
+name: Accordion
+icon: angle-dropdown
+label: "{{ title }}"
+wysiwyg: true
+preview: fields
+fields:
+  collapsed:
+    type: text
+    label: Collapsed Content
+    placeholder: Add content that is shown when the accordion is collapsed
+  content:
+    type: blocks
+    fieldsets:
+      - text
+      - image
+      - video
+      - quote
+      - code
+      - heading

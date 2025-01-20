@@ -1,0 +1,59 @@
+# System files
+# ------------
+
+Icon
+.DS_Store
+
+# Temporary files
+# ---------------
+/public/media/*
+!/media/index.html
+
+# Packages
+# ---------------
+vendor
+node_modules
+
+# Lock files
+# ---------------
+
+.lock
+
+# Editors
+# (sensitive workspace files)
+# ---------------------------
+*.sublime-workspace
+/.vscode
+/.idea
+
+# -------------SECURITY-------------
+# NEVER publish these files via Git!
+# -------------SECURITY-------------
+
+# Cache Files
+# ---------------
+
+/storage/cache/*
+!/storage/cache/index.html
+
+# Plugins
+# ---------------
+/site/plugins
+
+# Accounts
+# ---------------
+
+/storage/accounts/*
+!/storage/accounts/index.html
+
+# Sessions
+# ---------------
+
+/storage/sessions/*
+!/storage/sessions/index.html
+
+# License
+# ---------------
+
+/site/config/.license
+/site/config/config.starterkit.test.php
