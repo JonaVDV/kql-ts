@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { KirbyBlock, KirbyComponentProps } from "$lib/types/blocks";
+import type { KirbyBlock, KirbyComponentProps } from "@kql-ts/core";
 import type { HTMLAttributes } from "svelte/elements";
 
 interface Props
