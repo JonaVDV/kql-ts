@@ -2,13 +2,18 @@
   "name": "kql-ts",
   "version": "0.2.0",
   "module": "index.ts",
+  "private": true,
   "type": "module",
   "engines": {
     "node": ">=22.0.0",
     "bun": ">=1.1.42"
   },
   "scripts": {
-    "format": "bun --filter '*' format"
+    "format": "bun --filter '*' format",
+    "deps:check": "bunx sherif@latest",
+    "deps:fix": "bunx sherif@latest -f",
+    "clean": "git clean -xdf node_modules",
+    "clean:workspaces": "bun --filter '*' clean"
   },
   "packageManager": "bun@1.1.42",
   "workspaces": [
@@ -17,10 +22,10 @@
     "sites/*"
   ],
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
-  }
+  },
+  "prettier": "@kql-ts/prettier"
 }
