@@ -1,0 +1,34 @@
+{
+  "workbench.editor.customLabels.patterns": {
+    // Add custom labels for SvelteKit
+    "**/src/routes/**/+layout.svelte": "${dirname} - Layout",
+    "**/src/routes/**/+layout.server.ts": "${dirname} - Layout Server",
+    "**/src/routes/**/+layout.server.js": "${dirname} - Layout Server",
+    "**/src/routes/**/+page.svelte": "${dirname} - Page",
+    "**/src/routes/**/+page.server.ts": "${dirname} - Page Server",
+    "**/src/routes/**/+page.server.js": "${dirname} - Page Server",
+    "**/src/routes/**/+page.ts": "${dirname} - Page Load",
+    "**/src/routes/**/+page.js": "${dirname} - Page Load",
+    "**/src/routes/**/+error.svelte": "${dirname} - Error",
+    "**/src/routes/**/+layout.ts": "${dirname} - Layout Load",
+    "**/src/routes/**/+layout.js": "${dirname} - Layout Load",
+    "**/src/routes/**/+server.ts": "${dirname} - Api route",
+    "**/src/routes/**/+server.js": "${dirname} - Api route",
+    "**/src/routes/**/+hooks.ts": "${dirname} - Hooks",
+    "**/src/routes/**/+hooks.js": "${dirname} - Hooks",
+    "**/src/routes/+page.svelte": "Root - Page",
+    "**/src/routes/+page.server.ts": "Root - Page Server",
+    "**/src/routes/+page.server.js": "Root - Page Server",
+    "**/src/routes/+page.ts": "Root - Page Load",
+    "**/src/routes/+page.js": "Root - Page Load",
+    "**/src/routes/+error.svelte": "Root - Error",
+    "**/src/routes/+layout.ts": "Root - Layout Load",
+    "**/src/routes/+layout.js": "Root - Layout Load",
+    "**/src/routes/+layout.svelte": "Root - Layout",
+    "**/src/routes/+server.ts": "Root - Api route",
+    "**/src/routes/+server.js": "Root - Api route",
+
+  },
+
+  "editor.tabSize": 2
+}
