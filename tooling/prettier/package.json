@@ -1,0 +1,22 @@
+{
+  "name": "@kql-ts/prettier",
+  "private": true,
+  "description": "Prettier configuration for kql-ts packages",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "clean": "git clean -xdf node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "prettier": "^3.4.2"
+  },
+  "devDependencies": {
+    "@kql-ts/tsconfig": "workspace:*",
+    "typescript": "^5.0.0"
+  }
+}
