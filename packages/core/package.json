@@ -1,7 +1,7 @@
 {
 	"name": "@kql-ts/core",
 	"type": "module",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"devDependencies": {
 		"@types/bun": "latest",
 		"tsup": "^8.3.5",
