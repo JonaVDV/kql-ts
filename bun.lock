@@ -4,7 +4,9 @@
     "": {
       "name": "kql-ts",
       "devDependencies": {
+        "@kql-ts/prettier": "workspace:*",
         "@types/bun": "latest",
+        "prettier": "^3.4.2",
       },
       "peerDependencies": {
         "typescript": "^5.0.0",
@@ -13,6 +15,9 @@
     "packages/core": {
       "name": "@kql-ts/core",
       "devDependencies": {
+        "@kql-ts/eslint-config": "workspace:*",
+        "@kql-ts/prettier": "workspace:*",
+        "@kql-ts/tsconfig": "workspace:*",
         "@types/bun": "latest",
         "tsup": "^8.3.5",
       },
