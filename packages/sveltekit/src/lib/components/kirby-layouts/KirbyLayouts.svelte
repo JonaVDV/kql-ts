@@ -1,5 +1,5 @@
 <script lang="ts" generics="TLayouts extends KirbyLayout[]">
-	import type { KirbyLayout } from '$lib/types/layouts';
+	import type { KirbyLayout } from '@kql-ts/core/';
 	import type { Snippet } from 'svelte';
 
 	type TColumn = TLayouts[number]['columns'][number];
