@@ -1,0 +1,33 @@
+name: Release
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    if: github.repository == 'JonaVDV/kql-ts'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.2
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: bun changeset:release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
