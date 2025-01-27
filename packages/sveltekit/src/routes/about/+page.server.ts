@@ -31,8 +31,6 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		body: JSON.stringify(transformQuery(AboutQuery))
 	});
 
-	let test = 'test';
-
 	const data = (await response.json()) as KQLQueryTypeResolver<typeof AboutQuery>;
 
 	return {
