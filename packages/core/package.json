@@ -3,11 +3,14 @@
 	"type": "module",
 	"devDependencies": {
 		"@types/bun": "latest",
-		"tsup": "^8.3.5"
+		"tsup": "^8.3.5",
+		"@kql-ts/prettier": "workspace:*",
+		"@kql-ts/tsconfig": "workspace:*",
+		"@kql-ts/eslint-config": "workspace:*"
 	},
 	"scripts": {
-		"build": "tsup --config tsup.config.ts",
-		"format": "biome format --write"
+		"build": "tsc",
+		"format": "prettier --write . --ignore-path ../../.gitignore"
 	},
 	"types": "types.d.ts",
 	"exports": {
@@ -18,5 +21,6 @@
 	},
 	"peerDependencies": {
 		"typescript": "^5.0.0"
-	}
+	},
+	"prettier": "@kql-ts/prettier"
 }
