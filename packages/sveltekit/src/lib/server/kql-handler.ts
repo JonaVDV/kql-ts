@@ -1,5 +1,5 @@
-import { transformQuery } from "@kql-ts/core";
-import type { KQLQuery } from "@kql-ts/core";
+import { transformQuery } from '@kql-ts/core';
+import type { KQLQuery } from '@kql-ts/core';
 export interface KqlRequest {
 	query: KQLQuery;
 	endpoint: string;
@@ -18,7 +18,7 @@ export async function kqlHandler({
 	fetch,
 	auth,
 	headers = {},
-	timeout,
+	timeout
 }: KqlRequest) {
 	let controller: AbortController | undefined;
 	let timeoutId: Timer | undefined;
@@ -32,21 +32,21 @@ export async function kqlHandler({
 		const queryBody = transformQuery(query);
 
 		const response = await fetch(endpoint, {
-			method: "POST",
+			method: 'POST',
 			headers: {
-				"Content-Type": "application/json",
-				...(language && { "X-Language": language }),
+				'Content-Type': 'application/json',
+				...(language && { 'X-Language': language }),
 				...headers,
-				...(auth && { Authorization: auth }),
+				...(auth && { Authorization: auth })
 			} satisfies HeadersInit,
 			body: JSON.stringify(queryBody),
-			...(controller && { signal: controller.signal }),
+			...(controller && { signal: controller.signal })
 		});
 
 		if (!response.ok) {
 			const errorBody = await response.text();
 			throw new Error(
-				`KQL request failed: ${response.status} ${response.statusText}\n${errorBody}`,
+				`KQL request failed: ${response.status} ${response.statusText}\n${errorBody}`
 			);
 		}
 

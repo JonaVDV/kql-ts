@@ -4,7 +4,7 @@
  * @returns The transformed query object
  */
 export function transformQuery<T extends object>(
-	query: T,
+	query: T
 ): Record<string, unknown> {
 	return Object.fromEntries(
 		Object.entries(query).map(([key, value]) => [
@@ -14,6 +14,6 @@ export function transformQuery<T extends object>(
 				: typeof value === "object"
 					? transformQuery(value)
 					: value,
-		]),
+		])
 	);
 }

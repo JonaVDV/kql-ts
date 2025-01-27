@@ -1,9 +1,9 @@
 <script lang="ts">
-import type { KirbyComponentProps } from "$lib/types/blocks";
+	import type { KirbyComponentProps } from '$lib/types/blocks';
 
-interface Props extends KirbyComponentProps<"quote"> {}
+	interface Props extends KirbyComponentProps<'quote'> {}
 
-let { block }: Props = $props();
+	let { block }: Props = $props();
 </script>
 
 <blockquote>

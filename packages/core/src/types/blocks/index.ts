@@ -12,41 +12,41 @@ import type { Component } from "svelte";
  *
  */
 export interface KirbyDefaultBlocks extends Blocks.KirbyDefaultBlocks {
-  code: {
-    code: string;
-    language: string;
-  };
-  gallery: { images: string[] };
+	code: {
+		code: string;
+		language: string;
+	};
+	gallery: { images: string[] };
 
-  heading: {
-    level: string;
-    text: string;
-  };
+	heading: {
+		level: string;
+		text: string;
+	};
 
-  text: {
-    text: string;
-  };
+	text: {
+		text: string;
+	};
 
-  quote: {
-    text: string;
-    citation: string;
-  };
+	quote: {
+		text: string;
+		citation: string;
+	};
 
-  list: { text: string };
-  markdown: { text: string };
+	list: { text: string };
+	markdown: { text: string };
 
-  image: {
-    alt: string;
-    caption: string;
-    crop: boolean;
-    image: `file://${string}`[];
-    link: string;
-    location: string;
-    ratio: string;
-    src: string;
-  };
+	image: {
+		alt: string;
+		caption: string;
+		crop: boolean;
+		image: `file://${string}`[];
+		link: string;
+		location: string;
+		ratio: string;
+		src: string;
+	};
 
-  video: { url: string; caption: string };
+	video: { url: string; caption: string };
 }
 
 /**
@@ -55,21 +55,21 @@ export interface KirbyDefaultBlocks extends Blocks.KirbyDefaultBlocks {
  * @param TType - Type of the block
  */
 export interface KirbyBlock<TType extends KirbyBlockType> {
-  id: string;
-  type: TType;
-  isHidden: boolean;
-  content: KirbyDefaultBlocks[TType];
+	id: string;
+	type: TType;
+	isHidden: boolean;
+	content: KirbyDefaultBlocks[TType];
 }
 type Prettify<T> = { [P in keyof T]: T[P] };
 // create a type that is a union of all the keys of the default blocks
 export type KirbyBlockType = Prettify<keyof KirbyDefaultBlocks>;
 
 export type BlocksMap = Partial<{
-  [TType in KirbyBlockType]: Component<KirbyComponentProps<TType>>;
+	[TType in KirbyBlockType]: Component<KirbyComponentProps<TType>>;
 }>;
 
 export type KirbyComponentProps<TBlockType extends KirbyBlockType> = {
-  block?: KirbyBlock<TBlockType>;
+	block?: KirbyBlock<TBlockType>;
 };
 
 export type { Image } from "./image";

@@ -36,7 +36,7 @@ export type WithDynamicProps<T extends { __extra?: unknown }> = T & {
  * proxy.title.toString() // Returns "site.title"
  */
 export function proxyHandler<T extends { __extra?: unknown }>(
-	path: string,
+	path: string
 ): ProxyHandler<T> {
 	return {
 		get(_target, prop: string | symbol) {
@@ -61,7 +61,7 @@ export function proxyHandler<T extends { __extra?: unknown }>(
  * @returns {WithDynamicProps<T>} A proxy object that can be used to build queries
  */
 export function createKQLProxy<T extends { __extra?: any }>(
-	path: string = "",
+	path: string = ""
 ): WithDynamicProps<T> {
 	// important to use Object.assign here to make sure that the target is a function
 	const target = Object.assign(() => {}, {} as WithDynamicProps<T>);

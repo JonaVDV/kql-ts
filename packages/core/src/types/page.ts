@@ -58,7 +58,7 @@ export interface Page
 	modified: (
 		format: string,
 		handler: string,
-		languageCode: string,
+		languageCode: string
 	) => string | number | false | null;
 	num: () => number;
 	panel: () => Page;
