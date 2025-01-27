@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+/**
+ * This file is used to extend the types of the KQL objects.
+ * hence we need to disable the eslint rule for empty object type.
+ */
 declare namespace KQL {
 	/**
 	 * Represents a Kirby page. you can add custom fields and methods to it. using this interface.
