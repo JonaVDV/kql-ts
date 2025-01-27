@@ -1,7 +1,7 @@
 {
 	"name": "@kql-ts/core",
 	"type": "module",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"devDependencies": {
 		"@types/bun": "latest",
 		"tsup": "^8.3.5",
@@ -20,6 +20,12 @@
 			"import": "./dist/index.js"
 		}
 	},
+	"files": [
+		"dist",
+		"types.d.ts",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
 	"peerDependencies": {
 		"typescript": "^5.0.0"
 	},
