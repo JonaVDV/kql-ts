@@ -1,6 +1,6 @@
 {
 	"name": "@kql-ts/sveltekit",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && bun run package",
@@ -38,7 +38,7 @@
 		"@sveltejs/kit": "^2.0.0"
 	},
 	"dependencies": {
-		"@kql-ts/core": "workspace:*"
+		"@kql-ts/core": "^0.1.2"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
