@@ -18,5 +18,6 @@
   "devDependencies": {
     "@kql-ts/tsconfig": "workspace:*",
     "typescript": "^5.0.0"
-  }
+  },
+  "prettier": "@kql-ts/prettier"
 }

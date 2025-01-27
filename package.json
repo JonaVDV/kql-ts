@@ -13,7 +13,9 @@
     "deps:check": "bunx sherif@latest",
     "deps:fix": "bunx sherif@latest -f",
     "clean": "git clean -xdf node_modules",
-    "clean:workspaces": "bun --filter '*' clean"
+    "clean:workspaces": "bun --filter '*' clean",
+    "lint": "bun --filter '*' lint",
+    "prepare": "husky"
   },
   "packageManager": "bun@1.1.42",
   "workspaces": [
@@ -22,7 +24,9 @@
     "sites/*"
   ],
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@kql-ts/prettier": "workspace:*",
+    "prettier": "^3.4.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
