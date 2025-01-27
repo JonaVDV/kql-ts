@@ -1,23 +1,19 @@
 <script lang="ts" generics="TLayouts extends KirbyLayout[]">
-import type { KirbyLayout } from "$lib/types/layouts";
-import type { Snippet } from "svelte";
+	import type { KirbyLayout } from '@kql-ts/core/';
+	import type { Snippet } from 'svelte';
 
-type TColumn = TLayouts[number]["columns"][number];
-type TLayout = TLayouts[number];
+	type TColumn = TLayouts[number]['columns'][number];
+	type TLayout = TLayouts[number];
 
-interface Props {
-	layouts: TLayouts;
-	layoutWrapper?: Snippet<
-		[layoutSnippet: Snippet<[layoutData: TLayout]>, layout: TLayout]
-	>;
-	children: Snippet<[columnData: TColumn]>;
-	columnWrapper?: Snippet<
-		[columnSnippet: Snippet<[columnData: TColumn]>, column: TColumn]
-	>;
-	"--grid-gap"?: string;
-}
+	interface Props {
+		layouts: TLayouts;
+		layoutWrapper?: Snippet<[layoutSnippet: Snippet<[layoutData: TLayout]>, layout: TLayout]>;
+		children: Snippet<[columnData: TColumn]>;
+		columnWrapper?: Snippet<[columnSnippet: Snippet<[columnData: TColumn]>, column: TColumn]>;
+		'--grid-gap'?: string;
+	}
 
-let { layouts, layoutWrapper, columnWrapper, children }: Props = $props();
+	let { layouts, layoutWrapper, columnWrapper, children }: Props = $props();
 </script>
 
 {#each layouts as layout}

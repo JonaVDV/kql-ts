@@ -1,8 +1,3 @@
-export {
-	KirbyBlocks,
-	KirbyLayouts,
-	getBlocksContext,
-	setBlocksContext,
-} from "./components";
+export { KirbyBlocks, KirbyLayouts, getBlocksContext, setBlocksContext } from './components';
 
-export { kqlHandler } from "./server";
+export { kqlHandler } from './server';

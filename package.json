@@ -1,26 +1,38 @@
 {
-  "name": "kql-ts",
-  "version": "0.2.0",
-  "module": "index.ts",
-  "type": "module",
-  "engines": {
-    "node": ">=22.0.0",
-    "bun": ">=1.1.42"
-  },
-  "scripts": {
-    "format": "bun --filter '*' format"
-  },
-  "packageManager": "bun@1.1.42",
-  "workspaces": [
-    "packages/*",
-    "tooling/*",
-    "sites/*"
-  ],
-  "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  }
+	"name": "kql-ts",
+	"version": "0.2.0",
+	"module": "index.ts",
+	"private": true,
+	"type": "module",
+	"engines": {
+		"node": ">=22.0.0",
+		"bun": ">=1.1.42"
+	},
+	"scripts": {
+		"format": "bun --filter '*' format",
+		"deps:check": "bunx sherif@latest",
+		"deps:fix": "bunx sherif@latest -f",
+		"clean": "git clean -xdf node_modules",
+		"clean:workspaces": "bun --filter '*' clean",
+		"lint": "bun --filter '*' lint",
+		"changeset:version": "changeset version",
+		"changeset:release": "changeset publish",
+		"prepare": "husky"
+	},
+	"packageManager": "bun@1.1.42",
+	"workspaces": [
+		"packages/*",
+		"tooling/*",
+		"sites/*"
+	],
+	"devDependencies": {
+		"@changesets/cli": "^2.27.12",
+		"@kql-ts/prettier": "workspace:*",
+		"@types/bun": "latest",
+		"prettier": "^3.4.2"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"prettier": "@kql-ts/prettier"
 }

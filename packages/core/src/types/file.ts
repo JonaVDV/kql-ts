@@ -43,7 +43,7 @@ export interface File
 	crop: (
 		width: number,
 		height: number,
-		options?: CropPositions | string,
+		options?: CropPositions | string
 	) => File;
 	extension: () => string;
 	filename: () => string;

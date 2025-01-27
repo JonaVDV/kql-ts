@@ -1,0 +1,5 @@
+{
+	"extends": "@kql-ts/tsconfig/core.json",
+	"include": ["."],
+	"exclude": ["node_modules"]
+}

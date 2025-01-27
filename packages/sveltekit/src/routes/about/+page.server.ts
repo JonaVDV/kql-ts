@@ -1,8 +1,8 @@
-import { page, transformQuery, type KQLQueryTypeResolver } from "@kql-ts/core";
-import type { PageServerLoad } from "./$types";
+import { page, transformQuery, type KQLQueryTypeResolver } from '@kql-ts/core';
+import type { PageServerLoad } from './$types';
 
 const AboutQuery = {
-	query: page("about"),
+	query: page('about'),
 	select: {
 		id: true,
 		title: true,
@@ -19,23 +19,21 @@ const AboutQuery = {
 				id: true,
 				uuid: true,
 				url: true,
-				alt: true,
-			},
-		},
-	},
+				alt: true
+			}
+		}
+	}
 };
 
 export const load: PageServerLoad = async ({ fetch }) => {
-	const response = await fetch("./api", {
-		method: "POST",
-		body: JSON.stringify(transformQuery(AboutQuery)),
+	const response = await fetch('./api', {
+		method: 'POST',
+		body: JSON.stringify(transformQuery(AboutQuery))
 	});
 
-	const data = (await response.json()) as KQLQueryTypeResolver<
-		typeof AboutQuery
-	>;
+	const data = (await response.json()) as KQLQueryTypeResolver<typeof AboutQuery>;
 
 	return {
-		page: data,
+		page: data
 	};
 };

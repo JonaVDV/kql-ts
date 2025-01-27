@@ -1,1 +1,1 @@
-export { kqlHandler } from "./kql-handler";
+export { kqlHandler } from './kql-handler';

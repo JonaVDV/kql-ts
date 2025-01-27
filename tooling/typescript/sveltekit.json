@@ -1,4 +1,5 @@
 {
+  // this file is specific to SvelteKit since it has an internal tsconfig of of which it generates types for load functions, etc.
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "allowJs": true,

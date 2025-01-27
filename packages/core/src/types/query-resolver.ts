@@ -4,23 +4,26 @@ type ExtractBaseType<T> = T extends (...args: any[]) => infer R
 	: T extends { __default: any }
 		? T["__default"]
 		: T;
-export type IsCollection<T> = T extends Collection<any>
-	? true
-	: T extends (...args: any[]) => Collection<any>
+export type IsCollection<T> =
+	T extends Collection<any>
 		? true
-		: false;
+		: T extends (...args: any[]) => Collection<any>
+			? true
+			: false;
 // Helper to extract collection item type with function support
-type CollectionItemType<T> = T extends Collection<infer U>
-	? U
-	: T extends (...args: any[]) => Collection<infer U>
+type CollectionItemType<T> =
+	T extends Collection<infer U>
 		? U
-		: T;
+		: T extends (...args: any[]) => Collection<infer U>
+			? U
+			: T;
 /**
  * WrapIfCollection takes a type and a query and returns the type as an array if the query is a collection
  */
-export type WrapIfCollection<TObject, Query> = IsCollection<Query> extends true
-	? Array<TObject extends Array<any> ? TObject[0] : TObject>
-	: TObject;
+export type WrapIfCollection<TObject, Query> =
+	IsCollection<Query> extends true
+		? Array<TObject extends Array<any> ? TObject[0] : TObject>
+		: TObject;
 /**
  * Get the key from the query or if it is not there, return the type of the __extra property
  */
@@ -110,15 +113,16 @@ export type KQLQuery = {
 	};
 };
 
-export type HandleDeepCollections<T> = T extends Collection<infer U>
-	? {
-			query: Collection<U>;
-			select: {
-				[K in keyof ExtractDefault<U>]: HandleDeepCollections<
-					IsCollection<FunctionToReturn<ExtractDefault<U>[K]>> extends true
-						? FunctionToReturn<ExtractDefault<U>[K]>
-						: true
-				>;
-			};
-		}
-	: T;
+export type HandleDeepCollections<T> =
+	T extends Collection<infer U>
+		? {
+				query: Collection<U>;
+				select: {
+					[K in keyof ExtractDefault<U>]: HandleDeepCollections<
+						IsCollection<FunctionToReturn<ExtractDefault<U>[K]>> extends true
+							? FunctionToReturn<ExtractDefault<U>[K]>
+							: true
+					>;
+				};
+			}
+		: T;

@@ -1,54 +1,51 @@
 <!-- we use any here because we don't know the type of the blocks yet and the type will be too complex to define -->
 <script lang="ts" generics="TBlocks extends KirbyBlock<any>[]">
-import type { KirbyBlock } from "@kql-ts/core";
+	import type { KirbyBlock } from '@kql-ts/core';
 
-import { getBlocksContext } from "./state.svelte";
+	import { getBlocksContext } from './state.svelte';
 
-const components = getBlocksContext();
+	const components = getBlocksContext();
 
-type Props = {
-	/**
-	 * An array of blocks to render.
-	 */
-	blocks: TBlocks;
-	/** --- css props --- */
+	type Props = {
+		/**
+		 * An array of blocks to render.
+		 */
+		blocks: TBlocks;
+		/** --- css props --- */
 
-	/** The padding of the error message */
-	"--error-padding"?: string;
-	/** The margin of the error message */
-	"--error-margin"?: string;
-	/** The border radius of the error message */
-	"--error-border-radius"?: string;
-	/** The border width of the error message */
-	"--error-border-width"?: string;
-	/** The border color of the error message */
-	"--error-border-color"?: string;
-	/** The background color of the error message */
-	"--error-background-color"?: string;
-	/** The text color of the error message */
-	"--error-text-color"?: string;
-};
-let { blocks }: Props = $props();
+		/** The padding of the error message */
+		'--error-padding'?: string;
+		/** The margin of the error message */
+		'--error-margin'?: string;
+		/** The border radius of the error message */
+		'--error-border-radius'?: string;
+		/** The border width of the error message */
+		'--error-border-width'?: string;
+		/** The border color of the error message */
+		'--error-border-color'?: string;
+		/** The background color of the error message */
+		'--error-background-color'?: string;
+		/** The text color of the error message */
+		'--error-text-color'?: string;
+	};
+	let { blocks }: Props = $props();
 </script>
 
 {#if !components || !components.blocks}
-  <pre
-    class="error">No blocks context found. Did you forget to set the blocks context?</pre>
+	<pre class="error">No blocks context found. Did you forget to set the blocks context?</pre>
 {:else}
-  {#each blocks as block}
-    {#if block.type in components.blocks}
-      {@const Component = components.getBlock(block.type)}
-      <Component {block} />
-    {:else}
-      <pre class="error">
+	{#each blocks as block}
+		{#if block.type in components.blocks}
+			{@const Component = components.getBlock(block.type)}
+			<Component {block} />
+		{:else}
+			<pre class="error">
         Component not found: <span>{block.type}</span>
-        Available blocks: <span
-          >{JSON.stringify(components.getAllBlocks())}</span
-        >
+        Available blocks: <span>{JSON.stringify(components.getAllBlocks())}</span>
         Did you forget to add it to the blocks context?
       </pre>
-    {/if}
-  {/each}
+		{/if}
+	{/each}
 {/if}
 
 <!-- 
@@ -99,39 +96,39 @@ let { blocks }: Props = $props();
 -->
 
 <style>
-  .error {
-    /* Container styling */
-    padding: var(--error-padding, 1rem);
-    border-radius: var(--error-border-radius, 4px);
-    border-left-width: var(--error-border-width, 4px);
-    border-left-color: var(--error-border-color, #ff4444);
-    border-left-style: solid;
+	.error {
+		/* Container styling */
+		padding: var(--error-padding, 1rem);
+		border-radius: var(--error-border-radius, 4px);
+		border-left-width: var(--error-border-width, 4px);
+		border-left-color: var(--error-border-color, #ff4444);
+		border-left-style: solid;
 
-    /* Background and text */
-    background-color: var(--error-background-color, #2a1717);
-    color: var(--error-text-color, #f8d7da);
-    font-family:
-      system-ui,
-      -apple-system,
-      sans-serif;
+		/* Background and text */
+		background-color: var(--error-background-color, #2a1717);
+		color: var(--error-text-color, #f8d7da);
+		font-family:
+			system-ui,
+			-apple-system,
+			sans-serif;
 
-    /* Layout */
-    width: fit-content;
-    white-space-collapse: initial;
-    text-wrap: wrap;
+		/* Layout */
+		width: fit-content;
+		white-space-collapse: initial;
+		text-wrap: wrap;
 
-    /* Font settings */
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
+		/* Font settings */
+		font-size: 0.9rem;
+		line-height: 1.4;
+	}
 
-  .error span {
-    /* Technical details styling */
-    display: inline-block;
-    padding: 0.2rem 0.4rem;
-    background-color: hsla(0, 0%, 100%, 0.1);
-    border-radius: 3px;
-    font-family: monospace;
-    font-size: 0.85em;
-  }
+	.error span {
+		/* Technical details styling */
+		display: inline-block;
+		padding: 0.2rem 0.4rem;
+		background-color: hsla(0, 0%, 100%, 0.1);
+		border-radius: 3px;
+		font-family: monospace;
+		font-size: 0.85em;
+	}
 </style>

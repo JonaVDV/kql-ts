@@ -1,14 +1,12 @@
 <script lang="ts">
-import type { KirbyBlock, KirbyComponentProps } from "@kql-ts/core";
-import type { HTMLAttributes } from "svelte/elements";
+	import type { KirbyBlock, KirbyComponentProps } from '@kql-ts/core';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-interface Props
-	extends KirbyComponentProps<"heading">,
-		HTMLAttributes<HTMLHeadingElement> {
-	level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-}
+	interface Props extends KirbyComponentProps<'heading'>, HTMLAttributes<HTMLHeadingElement> {
+		level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+	}
 
-let { block, level, children, ...rest }: Props = $props();
+	let { block, level, children, ...rest }: Props = $props();
 </script>
 
 <svelte:element this={block?.content.level || level} id={block?.id} {...rest}>

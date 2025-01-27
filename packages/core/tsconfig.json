@@ -1,3 +1,5 @@
 {
-	"extends": ["@kql-ts/tsconfig/core"]
+	"extends": "@kql-ts/tsconfig/internal-package.json",
+	"include": ["src", "./types.d.ts"],
+	"exclude": ["node_modules"]
 }
