@@ -1,16 +1,16 @@
 <script lang="ts">
-	import type { KirbyComponentProps } from '$lib/types/blocks';
+	import type { KirbyComponentProps } from '@kql-ts/core';
 
 	interface Props extends KirbyComponentProps<'image'> {}
 	import { page } from '$app/state';
-	import type { Image } from '$lib/types/blocks';
+	import type { Image } from '@kql-ts/core';
 	import { fade } from 'svelte/transition';
 
 	let { block }: Props = $props();
 
 	let imageCollection = page.data.page.images;
 
-	function resolveImage(image: string, collection: Image[]) {
+	function resolveImage(image: string | undefined, collection: Image[]) {
 		const resolved = collection.find((img) => img.uuid === image);
 		if (!resolved) {
 			console.error(`Image with UUID ${image} not found in collection`);
@@ -20,7 +20,7 @@
 		return resolved;
 	}
 
-	let image = resolveImage(block.content.image[0], imageCollection);
+	let image = resolveImage(block?.content.image[0], imageCollection);
 
 	let imageLoaded = $state(false);
 </script>
@@ -36,7 +36,7 @@
 			/>
 		{/key}
 	{/if}
-	{#if block.content.caption}
+	{#if block?.content.caption}
 		<figcaption>{block.content.caption}</figcaption>
 	{/if}
 </figure>
