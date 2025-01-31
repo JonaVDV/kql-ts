@@ -10,7 +10,7 @@
 	},
 	"scripts": {
 		"format": "bun --filter '*' format",
-		"build": "bun --filter '*' build",
+		"build": "bun --bun --filter '*' build",
 		"deps:check": "bunx sherif@latest",
 		"deps:fix": "bunx sherif@latest -f",
 		"clean": "git clean -xdf node_modules",
