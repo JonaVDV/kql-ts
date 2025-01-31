@@ -47,7 +47,9 @@ type Validators =
 	| "url"
 	| "uuid";
 
-export interface Field {
+export interface Field<
+	TStructureOutput extends Record<string, unknown> = Record<string, unknown>,
+> extends KQL.Field {
 	__default: string;
 	/**Escapes the field value to be safely used in HTML templates without the risk of XSS attacks @param context - The context to escape the field value for @alias `esc`*/
 	escape: (context: EscapeContext) => Field;
@@ -172,7 +174,7 @@ export interface Field {
 	 */
 	toString: () => string;
 	/**Converts a yaml field to a Structure object*/
-	toStructure: () => Collection<StructureObject>;
+	toStructure: () => Collection<StructureObject<TStructureOutput>>;
 	/**Converts the field value to a Unix timestamp*/
 	toTimestamp: () => number | false;
 	/**Turns the field value into an absolute Url*/

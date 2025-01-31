@@ -20,6 +20,10 @@ declare namespace KQL {
 	 * Represents the Kirby object. you can add custom fields and methods to it. using this interface
 	 */
 	interface App {}
+	/**
+	 * Represents the Kirby field object. you can add custom fields and methods to it. You can also use the imported Field type from the core package.
+	 */
+	interface Field {}
 }
 
 declare namespace Blocks {

@@ -1,8 +1,13 @@
+import type { Field } from '@kql-ts/core';
+
 declare global {
 	namespace KQL {
 		interface Page {
-			customField: string;
-			myCustomMethod: () => void;
+			social: Field<{
+				platform: string;
+				url: string;
+				id: `${number}`;
+			}>;
 		}
 	}
 
