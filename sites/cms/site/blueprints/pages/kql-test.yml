@@ -1,0 +1,186 @@
+title: KQL Test Page
+icon: 🧪
+
+status:
+  draft: true
+  listed: true
+
+tabs:
+  text:
+    icon: text
+    label: Text Methods
+    columns:
+      - width: 1/2
+        fields:
+          simpleText:
+            label: Simple Text (length, upper, lower, excerpt)
+            type: text
+            help: Test methods like length(), upper(), lower(), excerpt()
+          writer:
+            label: Writer (html, kirbytext)
+            type: writer
+            help: Test methods like html(), kirbytext()
+          markdown:
+            label: Markdown Text
+            type: markdown
+            help: Test markdown parsing methods
+      - width: 1/2
+        fields:
+          textarea:
+            label: Textarea (split)
+            type: textarea
+            help: Test split() method
+          slug:
+            label: Slug Text
+            type: text
+            help: Test slug() method
+          yaml:
+            label: YAML Text
+            type: textarea
+            help: Test yaml() method
+
+  numbers:
+    icon: calculator
+    label: Number Methods
+    fields:
+      integer:
+        label: Integer (format, toBytes)
+        type: number
+        help: Test number formatting methods
+      float:
+        label: Float Number
+        type: number
+        step: 0.01
+        help: Test decimal number methods
+
+  files:
+    icon: image
+    label: Files & Media
+    sections:
+      testfiles:
+        headline: Test Files
+        type: files
+        template: default
+        layout: cards
+        info: "{{ file.dimensions }}"
+        image:
+          ratio: 5/4
+          cover: true
+    fields:
+      singleFile:
+        label: Single File (dimensions, exif)
+        type: files
+        multiple: false
+        required: true
+        uploads:
+          template: image
+        help: Test file methods like dimensions(), exif()
+        default: test.jpg
+      multipleFiles:
+        label: Multiple Files (toFiles)
+        type: files
+        multiple: true
+        required: true
+        uploads:
+          template: [image, document, video, audio]
+        help: Test collection methods on files
+        default:
+          - test.jpg
+          - test.pdf
+          - test.mp4
+          - test.mp3
+
+  collections:
+    icon: list
+    label: Collections
+    fields:
+      tags:
+        label: Tags (split, yaml)
+        type: tags
+        help: Test collection methods
+      structure:
+        label: Structure Data
+        type: structure
+        fields:
+          title:
+            type: text
+          description:
+            type: textarea
+
+  dates:
+    icon: calendar
+    label: Date Methods
+    fields:
+      date:
+        label: Date (toDate)
+        type: date
+        help: Test date formatting methods
+      time:
+        label: Time
+        type: time
+      datetime:
+        label: DateTime
+        type: datetime
+
+  layouts:
+    icon: template
+    label: Layout Testing
+    fields:
+      layout:
+        label: Layout Blocks
+        type: layout
+        layouts:
+          - "1/1"
+          - "1/2, 1/2"
+          - "1/3, 1/3, 1/3"
+        fieldsets:
+          - text
+          - image
+          - gallery
+          - video
+        help: Test layout object methods
+
+  users:
+    icon: users
+    label: Users & Roles
+    fields:
+      users:
+        label: Users (toUser)
+        type: users
+        help: Test user methods
+      userRole:
+        label: User Role
+        type: select
+        options: query
+        query: site.blueprints.users
+
+  pages:
+    icon: page
+    label: Page Methods
+    fields:
+      pages:
+        label: Page Selection
+        type: pages
+        help: Test page methods like children(), siblings(), etc.
+      pageTitle:
+        label: Page Title
+        type: text
+        help: Test page field methods
+
+  other:
+    icon: lab
+    label: Other Methods
+    fields:
+      toggle:
+        label: Toggle (bool)
+        type: toggle
+        help: Test boolean methods
+      select:
+        label: Select (toPage)
+        type: select
+        options: query
+        query: site.index
+      url:
+        label: URL (toUrl)
+        type: url
+        help: Test URL methods

@@ -1,0 +1,21 @@
+title: Video
+accept: video/mp4, video/webm, video/ogg
+
+fields:
+  title:
+    label: Title
+    type: text
+  description:
+    label: Description
+    type: textarea
+  poster:
+    label: Poster Image
+    type: files
+    multiple: false
+    accept: image/*
+  duration:
+    label: Duration
+    type: text
+  autoplay:
+    label: Autoplay
+    type: toggle

@@ -1,0 +1,10 @@
+title: Document
+accept: application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document
+
+fields:
+  title:
+    label: Title
+    type: text
+  description:
+    label: Description
+    type: textarea

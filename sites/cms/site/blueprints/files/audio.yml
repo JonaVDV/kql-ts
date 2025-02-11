@@ -1,0 +1,19 @@
+title: Audio
+accept: audio/mp3, audio/wav, audio/ogg
+
+fields:
+  title:
+    label: Title
+    type: text
+  description:
+    label: Description
+    type: textarea
+  duration:
+    label: Duration
+    type: text
+  artist:
+    label: Artist
+    type: text
+  album:
+    label: Album
+    type: text
