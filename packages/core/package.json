@@ -2,7 +2,8 @@
 	"name": "@kql-ts/core",
 	"type": "module",
 	"main": "dist/index.js",
-	"version": "0.2.0",
+	"version": "0.1.2",
+	"description": "Core package for KQL-TS",
 	"devDependencies": {
 		"@types/bun": "latest",
 		"tsup": "^8.3.5",
@@ -12,7 +13,9 @@
 	},
 	"scripts": {
 		"build": "tsup --config tsup.config.ts",
-		"format": "prettier --write . --ignore-path ../../.gitignore"
+		"format": "prettier --write . --ignore-path ../../.gitignore",
+		"test": "bun test ./tests/**/*.test.ts --preload ./tests/kql/setup.ts",
+		"test:watch": "bun test ./tests/**/*.test.ts --preload ./tests/kql/setup.ts --watch"
 	},
 	"types": "dist/index.d.ts",
 	"exports": {
