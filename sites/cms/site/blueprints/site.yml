@@ -25,8 +25,11 @@ columns:
       # Since the error page's blueprint is set to `read: false`, it wouldn't show up here even if you added the error blueprint to the templates list
       pages:
         type: pages
-        create: default
-        templates:
-          - about
-          - home
+        create:
           - default
+          - kql-test
+        # templates:
+        #   - about
+        #   - home
+        #   - kql-test
+        #   - default
