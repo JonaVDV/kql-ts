@@ -38,7 +38,7 @@
 		"@sveltejs/kit": "^2.0.0"
 	},
 	"dependencies": {
-		"@kql-ts/core": "^0.1.2"
+		"@kql-ts/core": "latest"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
