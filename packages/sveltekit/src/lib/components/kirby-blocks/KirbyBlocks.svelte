@@ -3,6 +3,7 @@
 	import type { KirbyBlock } from '@kql-ts/core';
 
 	import { getBlocksContext } from './state.svelte';
+	import type { Snippet } from 'svelte';
 
 	const components = getBlocksContext();
 
@@ -11,6 +12,7 @@
 		 * An array of blocks to render.
 		 */
 		blocks: TBlocks;
+		blockWrapper?: Snippet<[block: TBlocks[number]]>;
 		/** --- css props --- */
 
 		/** The padding of the error message */
@@ -28,7 +30,7 @@
 		/** The text color of the error message */
 		'--error-text-color'?: string;
 	};
-	let { blocks }: Props = $props();
+	let { blocks, blockWrapper }: Props = $props();
 </script>
 
 {#if !components || !components.blocks}
@@ -37,7 +39,11 @@
 	{#each blocks as block}
 		{#if block.type in components.blocks}
 			{@const Component = components.getBlock(block.type)}
-			<Component {block} />
+			{#if blockWrapper}
+				{@render blockWrapper(block)}
+			{:else}
+				<Component {block} />
+			{/if}
 		{:else}
 			<pre class="error">
         Component not found: <span>{block.type}</span>
