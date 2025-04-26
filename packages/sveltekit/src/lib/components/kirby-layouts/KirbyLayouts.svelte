@@ -16,7 +16,7 @@
 	let { layouts, layoutWrapper, columnWrapper, children }: Props = $props();
 </script>
 
-{#each layouts as layout}
+{#each layouts as layout (layout.id)}
 	{#if layoutWrapper}
 		{@render layoutWrapper(layoutSnippet, layout)}
 	{:else}
@@ -26,7 +26,7 @@
 	{/if}
 
 	{#snippet layoutSnippet(layoutData: TLayout)}
-		{#each layoutData.columns as column}
+		{#each layoutData.columns as column (column.id)}
 			{#if columnWrapper}
 				{@render columnWrapper(columnSnippet, column)}
 			{:else}

@@ -34,7 +34,7 @@
 {#if !components || !components.blocks}
 	<pre class="error">No blocks context found. Did you forget to set the blocks context?</pre>
 {:else}
-	{#each blocks as block}
+	{#each blocks as block (block.id)}
 		{#if block.type in components.blocks}
 			{@const Component = components.getBlock(block.type)}
 			<Component {block} />
